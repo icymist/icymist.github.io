@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaitanya Krishna Ande</title><link href="http://icymist.github.io/" rel="alternate"></link><link href="http://icymist.github.io/feeds/how-to.atom.xml" rel="self"></link><id>http://icymist.github.io/</id><updated>2015-03-27T11:53:00+01:00</updated><entry><title>Install Torque on a single multi-core Linux deskop</title><link href="http://icymist.github.io/install-torque-on-a-single-multi-core-linux-deskop.html" rel="alternate"></link><updated>2015-03-27T11:53:00+01:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2015-03-27:install-torque-on-a-single-multi-core-linux-deskop.html</id><summary type="html">&lt;p&gt;These days, all desktops easily have at least 4 or more cores.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaitanya Krishna Ande</title><link href="http://icymist.github.io/" rel="alternate"></link><link href="http://icymist.github.io/feeds/how-to.atom.xml" rel="self"></link><id>http://icymist.github.io/</id><updated>2015-03-27T16:00:00+01:00</updated><entry><title>Install Anaconda for a painless Python experience</title><link href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html" rel="alternate"></link><updated>2015-03-27T16:00:00+01:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2015-03-27:install-anaconda-for-a-painless-python-experience.html</id><summary type="html">&lt;p&gt;I have recently migrated from the Enthought Python Distribution to the Anaconda Python Distribution.
+Using anaconda has been a breeze compared to Enthought.
+Somehow, I couldn't get around my head to understand the User and System enviroments in Enthought.
+Also, I didn't quite understand how the command line management is different from the GUI.
+With Anacond it has been pretty simple.
+Just install, clone to get a new environment and start working.&lt;/p&gt;
+&lt;p&gt;To install a python environment for my blog using pelican, I just had to do the following.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install anaconda and add anaconda python to your path.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;chmod +x Anaconda-2.1.0-Linux-x86_64.sh
+./Anaconda-2.1.0-Linux-x86_64.sh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the &lt;code&gt;root&lt;/code&gt; environment to a new environment named &lt;code&gt;pelican&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;conda create -n pelican --clone root
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install pelican and markdown. markdown wasn't present in the base Anaconda distribution.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install pelican
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change to the new pelican python environment and start working.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;source &lt;/span&gt;activate pelican
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;That was it. And, to get back to the root environment:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;source &lt;/span&gt;deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Other useful conda commands.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Info about available environments.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;conda info -e
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Completely remove an environment.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;conda remove -n &amp;lt;name of environment&amp;gt; --all
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="linux"></category><category term="python"></category></entry><entry><title>Install Torque on a single multi-core Linux deskop</title><link href="http://icymist.github.io/install-torque-on-a-single-multi-core-linux-deskop.html" rel="alternate"></link><updated>2015-03-27T11:53:00+01:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2015-03-27:install-torque-on-a-single-multi-core-linux-deskop.html</id><summary type="html">&lt;p&gt;These days, all desktops easily have at least 4 or more cores.
 We can use Torque to continuously use all these for running jobs in a batch.&lt;/p&gt;
 &lt;p&gt;Here, we install Torque on a linux desktop, with eight cores.
 The desktop will act both as the torque server and also as the compute node on which computations are carried out.&lt;/p&gt;
