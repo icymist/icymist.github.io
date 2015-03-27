@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Chaitanya Krishna Ande - linux</title>
+        <link rel="stylesheet" href="http://icymist.github.io/theme/css/main.css" />
+        <link href="http://icymist.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Chaitanya Krishna Ande Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://icymist.github.io/">Chaitanya Krishna Ande </a></h1>
+                <nav><ul>
+                    <li><a href="http://icymist.github.io/pages/about.html">About</a></li>
+                    <li><a href="http://icymist.github.io/category/how-to.html">How To</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://icymist.github.io/install-torque-on-a-single-multi-core-linux-deskop.html">Install Torque on a single multi-core Linux deskop</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-03-27T11:53:00+01:00">
+                Published: Fri 27 March 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://icymist.github.io/author/chaitanya-krishna-ande.html">Chaitanya Krishna Ande</a>
+        </address>
+<p>In <a href="http://icymist.github.io/category/how-to.html">How To</a>. </p>
+<p>tags: <a href="http://icymist.github.io/tag/linux.html">linux</a> </p>
+</footer><!-- /.post-info --><p>These days, all desktops easily have at least 4 or more cores.
+We can use Torque to continuously use all these for running jobs in a batch.</p>
+<p>Here, we install Torque on a linux desktop, with eight cores.
+The desktop will act both as the torque server and also as the compute node on which computations are carried out.</p>
+<p>Let us assume that we are trying to install it on the desktop with the fully qualified domain: bluesky.breezy.day. It is running openSuSE 13.2.
+So, the hostname would just be bluesky. Then, do the following.</p>
+<ol>
+<li>
+<p>Install all torque related stuff (torque-sever, torque-client, torque-mom, etc.) from <a href="https://software.opensuse.org/package/torque">here</a>. They are listed as unstable.</p>
+</li>
+<li>
+<p>Check the hostname. In my case, for some reason, <code>hostname -f</code> was not giving the fully qualified domain name bluesky.breezy.day, but just the hostnmame bluesky.</p>
+<div class="highlight"><pre>hostname
+bluesky
+hostname -f
+bluesky
+</pre></div>
+
+
+</li>
+<li>
+<p>Make sure that /etc/hosts has a line which lists the ip address of whatever you get for hostname in 1.</p>
+<div class="highlight"><pre><span class="nb">echo</span> <span class="s1">&#39;135.96.55.18 bleusky&#39;</span> &gt;&gt; /etc/hosts
+</pre></div>
+
+
+</li>
+<li>
+<p>Create a serverdb file</p>
+<div class="highlight"><pre>pbs_server -t create
+</pre></div>
+
+
+</li>
+<li>
+<p>Create a nodes file</p>
+<div class="highlight"><pre>cat server_priv/nodes
+bluesky <span class="nv">np</span><span class="o">=</span>6   <span class="c"># np is the number of cores on the desktop that you want to use</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Since, we are using the server also as the compute node, modify mom_priv/config. It should be:</p>
+<div class="highlight"><pre>cat mom_priv/config   
+<span class="nv">$pbsserver</span> bluesky   <span class="c"># hostname running pbs server</span>
+<span class="nv">$logevent</span> 225        <span class="c"># bitmap of which events to log</span>
+</pre></div>
+
+
+</li>
+<li>
+<p>Open up the ports for Torque in openSuSE firewall.</p>
+</li>
+<li>
+<p>Enable pbs_server, pbs_mom and pbs_sched in Yast &gt; System &gt; Services in exactly the order listed.
+    Enabling the pbs_server AFTER pbs_mom, will not result in the pbs_server starting properly.</p>
+</li>
+<li>
+<p>Finally create a queue in which to run the jobs.</p>
+<div class="highlight"><pre>qmgr -c <span class="s2">&quot;set server scheduling=true&quot;</span>
+qmgr -c <span class="s2">&quot;create queue default queue_type=execution&quot;</span>
+qmgr -c <span class="s2">&quot;set queue default started=true&quot;</span>
+qmgr -c <span class="s2">&quot;set queue default enabled=true&quot;</span>
+qmgr -c <span class="s2">&quot;set queue default enabled=true&quot;</span>
+qmgr -c <span class="s2">&quot;set server default_queue=default&quot;</span>
+</pre></div>
+
+
+</li>
+</ol>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://icymist.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
