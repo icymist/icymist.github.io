@@ -17,12 +17,60 @@
                 <nav><ul>
                     <li><a href="http://icymist.github.io/pages/about.html">About</a></li>
                     <li><a href="http://icymist.github.io/category/how-to.html">How To</a></li>
+                    <li><a href="http://icymist.github.io/category/productivity.html">Productivity</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html">Install Anaconda for a painless Python experience</a></h1>
+                    <h1 class="entry-title"><a href="http://icymist.github.io/using-git-and-latexdiff.html">Using git and latexdiff</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-04-10T17:41:40+02:00">
+                Published: Fri 10 April 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://icymist.github.io/author/chaitanya-krishna-ande.html">Chaitanya Krishna Ande</a>
+        </address>
+<p>In <a href="http://icymist.github.io/category/productivity.html">Productivity</a>. </p>
+<p>tags: <a href="http://icymist.github.io/tag/latex.html">latex</a> <a href="http://icymist.github.io/tag/git.html">git</a> <a href="http://icymist.github.io/tag/linux.html">linux</a> </p>
+</footer><!-- /.post-info --><p><code>latexdiff</code> makes a diff of an <code>old</code> latex file and a <code>new</code> latex file and gives a new <code>diff</code> file.
+The <code>diff</code> file can now be compiled and will show all the additions and deletions in the <code>new</code> file compared to the <code>old</code> one.</p>
+<div class="highlight"><pre>latexdiff old.tex new.tex &gt; diff.tex
+pdflatex diff.tex
+</pre></div>
+
+
+<p><code>latexdiff</code> might fail if the encodings of the old and the new tex files are different.</p>
+<p>To convert a text file with Windows line endings to unix line endings and encoded in ASCII:</p>
+<div class="highlight"><pre>iconv -f CP1252 -t ASCII//TRANSLIT windows-CP1252.txt <span class="p">|</span> dos2unix &gt; unix-ascii.txt
+</pre></div>
+
+
+<p>Use the <code>TRANSLIT</code> option to overcome issues related to failed encodings of certain characters.</p>
+<p>Use <code>git-latexdiff</code> to compare two version of the document in version control.
+For example, suppose that you are writing a paper.
+You call the paper <code>paper.tex</code> and just sent a version, after committing it, to your supervisor for corrections.
+Your supervisor has sent back paper.tex with corrections and comments.
+You can now just overwrite the old paper.tex with the new one and do:</p>
+<div class="highlight"><pre>git-latexdiff --main paper.tex &lt;sha-of-old-commit&gt; --
+</pre></div>
+
+
+<p>This will compare the old commit with the one in the working directory (represented by <code>--</code>).</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html" rel="bookmark"
+                           title="Permalink to Install Anaconda for a painless Python experience">Install Anaconda for a painless Python experience</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2015-03-27T16:00:00+01:00">
                 Published: Fri 27 March 2015
@@ -33,73 +81,13 @@
         </address>
 <p>In <a href="http://icymist.github.io/category/how-to.html">How To</a>. </p>
 <p>tags: <a href="http://icymist.github.io/tag/linux.html">linux</a> <a href="http://icymist.github.io/tag/python.html">python</a> </p>
-</footer><!-- /.post-info --><p>I have recently migrated from the Enthought Python Distribution to the Anaconda Python Distribution.
+</footer><!-- /.post-info -->                <p>I have recently migrated from the Enthought Python Distribution to the Anaconda Python Distribution.
 Using anaconda has been a breeze compared to Enthought.
 Somehow, I couldn't get around my head to understand the User and System enviroments in Enthought.
-Also, I didn't quite understand how the command line management is different from the GUI.
-With Anacond it has been pretty simple.
-Just install, clone to get a new environment and start working.</p>
-<p>To install a python environment for my blog using pelican, I just had to do the following.</p>
-<ol>
-<li>
-<p>Install anaconda and add anaconda python to your path.</p>
-<div class="highlight"><pre>chmod +x Anaconda-2.1.0-Linux-x86_64.sh
-./Anaconda-2.1.0-Linux-x86_64.sh
-</pre></div>
-
-
-</li>
-<li>
-<p>Clone the <code>root</code> environment to a new environment named <code>pelican</code>.</p>
-<div class="highlight"><pre>conda create -n pelican --clone root
-</pre></div>
-
-
-</li>
-<li>
-<p>Install pelican and markdown. markdown wasn't present in the base Anaconda distribution.</p>
-<div class="highlight"><pre>pip install pelican
-</pre></div>
-
-
-</li>
-<li>
-<p>Change to the new pelican python environment and start working.</p>
-<div class="highlight"><pre><span class="nb">source </span>activate pelican
-</pre></div>
-
-
-</li>
-<li>
-<p>That was it. And, to get back to the root environment:</p>
-<div class="highlight"><pre><span class="nb">source </span>deactivate
-</pre></div>
-
-
-</li>
-</ol>
-<p>Other useful conda commands.</p>
-<ul>
-<li>
-<p>Info about available environments.</p>
-<div class="highlight"><pre>conda info -e
-</pre></div>
-
-
-</li>
-<li>
-<p>Completely remove an environment.</p>
-<div class="highlight"><pre>conda remove -n &lt;name of environment&gt; --all
-</pre></div>
-
-
-</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+Also, I didn't quite understand how the command line ...</p>
+                <a class="readmore" href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

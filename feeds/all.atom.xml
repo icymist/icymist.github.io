@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaitanya Krishna Ande</title><link href="http://icymist.github.io/" rel="alternate"></link><link href="http://icymist.github.io/feeds/all.atom.xml" rel="self"></link><id>http://icymist.github.io/</id><updated>2015-03-27T16:00:00+01:00</updated><entry><title>Install Anaconda for a painless Python experience</title><link href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html" rel="alternate"></link><updated>2015-03-27T16:00:00+01:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2015-03-27:install-anaconda-for-a-painless-python-experience.html</id><summary type="html">&lt;p&gt;I have recently migrated from the Enthought Python Distribution to the Anaconda Python Distribution.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaitanya Krishna Ande</title><link href="http://icymist.github.io/" rel="alternate"></link><link href="http://icymist.github.io/feeds/all.atom.xml" rel="self"></link><id>http://icymist.github.io/</id><updated>2015-04-10T17:41:40+02:00</updated><entry><title>Using git and latexdiff</title><link href="http://icymist.github.io/using-git-and-latexdiff.html" rel="alternate"></link><updated>2015-04-10T17:41:40+02:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2015-04-10:using-git-and-latexdiff.html</id><summary type="html">&lt;p&gt;&lt;code&gt;latexdiff&lt;/code&gt; makes a diff of an &lt;code&gt;old&lt;/code&gt; latex file and a &lt;code&gt;new&lt;/code&gt; latex file and gives a new &lt;code&gt;diff&lt;/code&gt; file.
+The &lt;code&gt;diff&lt;/code&gt; file can now be compiled and will show all the additions and deletions in the &lt;code&gt;new&lt;/code&gt; file compared to the &lt;code&gt;old&lt;/code&gt; one.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;latexdiff old.tex new.tex &amp;gt; diff.tex
+pdflatex diff.tex
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;latexdiff&lt;/code&gt; might fail if the encodings of the old and the new tex files are different.&lt;/p&gt;
+&lt;p&gt;To convert a text file with Windows line endings to unix line endings and encoded in ASCII:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;iconv -f CP1252 -t ASCII//TRANSLIT windows-CP1252.txt &lt;span class="p"&gt;|&lt;/span&gt; dos2unix &amp;gt; unix-ascii.txt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Use the &lt;code&gt;TRANSLIT&lt;/code&gt; option to overcome issues related to failed encodings of certain characters.&lt;/p&gt;
+&lt;p&gt;Use &lt;code&gt;git-latexdiff&lt;/code&gt; to compare two version of the document in version control.
+For example, suppose that you are writing a paper.
+You call the paper &lt;code&gt;paper.tex&lt;/code&gt; and just sent a version, after committing it, to your supervisor for corrections.
+Your supervisor has sent back paper.tex with corrections and comments.
+You can now just overwrite the old paper.tex with the new one and do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git-latexdiff --main paper.tex &amp;lt;sha-of-old-commit&amp;gt; --
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will compare the old commit with the one in the working directory (represented by &lt;code&gt;--&lt;/code&gt;).&lt;/p&gt;</summary><category term="latex"></category><category term="git"></category><category term="linux"></category></entry><entry><title>Install Anaconda for a painless Python experience</title><link href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html" rel="alternate"></link><updated>2015-03-27T16:00:00+01:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2015-03-27:install-anaconda-for-a-painless-python-experience.html</id><summary type="html">&lt;p&gt;I have recently migrated from the Enthought Python Distribution to the Anaconda Python Distribution.
 Using anaconda has been a breeze compared to Enthought.
 Somehow, I couldn't get around my head to understand the User and System enviroments in Enthought.
 Also, I didn't quite understand how the command line management is different from the GUI.
