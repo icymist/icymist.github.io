@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Chaitanya Krishna Ande - python</title>
+        <title>Chaitanya Krishna Ande - investing</title>
         <link rel="stylesheet" href="http://icymist.github.io/theme/css/main.css" />
         <link href="http://icymist.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Chaitanya Krishna Ande Atom Feed" />
 
@@ -24,79 +24,43 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html">Install Anaconda for a painless Python experience</a></h1>
+                    <h1 class="entry-title"><a href="http://icymist.github.io/turtle-trader-strategies.html">Turtle Trader Strategies</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2015-03-27T16:00:00+01:00">
-                Published: Fri 27 March 2015
+        <abbr class="published" title="2016-04-10T14:54:00+02:00">
+                Published: Sun 10 April 2016
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="http://icymist.github.io/author/chaitanya-krishna-ande.html">Chaitanya Krishna Ande</a>
         </address>
-<p>In <a href="http://icymist.github.io/category/how-to.html">How To</a>. </p>
-<p>tags: <a href="http://icymist.github.io/tag/linux.html">linux</a> <a href="http://icymist.github.io/tag/python.html">python</a> </p>
-</footer><!-- /.post-info --><p>I have recently migrated from the Enthought Python Distribution to the Anaconda Python Distribution.
-Using anaconda has been a breeze compared to Enthought.
-Somehow, I couldn't get around my head to understand the User and System enviroments in Enthought.
-Also, I didn't quite understand how the command line management is different from the GUI.
-With Anacond it has been pretty simple.
-Just install, clone to get a new environment and start working.</p>
-<p>To install a python environment for my blog using pelican, I just had to do the following.</p>
-<ol>
-<li>
-<p>Install anaconda and add anaconda python to your path.</p>
-<div class="highlight"><pre>chmod +x Anaconda-2.1.0-Linux-x86_64.sh
-./Anaconda-2.1.0-Linux-x86_64.sh
-</pre></div>
-
-
-</li>
-<li>
-<p>Clone the <code>root</code> environment to a new environment named <code>pelican</code>.</p>
-<div class="highlight"><pre>conda create -n pelican --clone root
-</pre></div>
-
-
-</li>
-<li>
-<p>Install pelican and markdown. markdown wasn't present in the base Anaconda distribution.</p>
-<div class="highlight"><pre>pip install pelican
-</pre></div>
-
-
-</li>
-<li>
-<p>Change to the new pelican python environment and start working.</p>
-<div class="highlight"><pre><span class="nb">source </span>activate pelican
-</pre></div>
-
-
-</li>
-<li>
-<p>That was it. And, to get back to the root environment:</p>
-<div class="highlight"><pre><span class="nb">source </span>deactivate
-</pre></div>
-
-
-</li>
-</ol>
-<p>Other useful conda commands.</p>
+<p>In <a href="http://icymist.github.io/category/investing.html">Investing</a>. </p>
+<p>tags: <a href="http://icymist.github.io/tag/investing.html">investing</a> <a href="http://icymist.github.io/tag/technical.html">technical</a> <a href="http://icymist.github.io/tag/turtles.html">turtles</a> </p>
+</footer><!-- /.post-info --><h1>Terminology</h1>
 <ul>
-<li>
-<p>Info about available environments.</p>
-<div class="highlight"><pre>conda info -e
-</pre></div>
-
-
-</li>
-<li>
-<p>Completely remove an environment.</p>
-<div class="highlight"><pre>conda remove -n &lt;name of environment&gt; --all
-</pre></div>
-
-
-</li>
-</ul>                </article>
+<li>o, h, l, c :: open, high, low, close</li>
+<li>x(n) :: where x is in [o, h, l, c], n=0 is today, -1 is yesterday, and so on.</li>
+<li>TR :: True Range. It is max(abs(h(0)-l(0)), abs(h(0)-c(-1)), abs(l(0)-c(-1)))</li>
+<li>ATR(n): Average True Range. Moving Average of TR over a period of time n.</li>
+</ul>
+<h1>What should the portfolio constitute?</h1>
+<p>It does not matter what constitutes the portfolio.
+It is important that they are as less correlated as possible.
+Also, a combination of longs and shorts is better than all longs or all shorts.</p>
+<h1>What percentage of the portfolio should be associated with each trade?</h1>
+<p>Not more than 2%.
+Wrong calls on large trades will erode capital much faster than wrong calls on small trades.
+2% on each trade gives a chance to have at least 50 trades.</p>
+<h1>What are the entry and exit points for the trade?</h1>
+<p>Enter and exit during breakouts.</p>
+<p>There are two strategies:</p>
+<h2>S1</h2>
+<p><strong>Entry</strong> :: Buy or sell short a market if it made a new twenty-day high or low.</p>
+<p><strong>Exit</strong> :: Sell or cover short if the market made a new ten-day low or high.</p>
+<h2>S2</h2>
+<p>Longer-term trading strategy.</p>
+<p><strong>Entry</strong> ::  55-day breakout</p>
+<p><strong>Exit</strong> :: 20-day breakout</p>
+<h1>When should you add to the trade?</h1>                </article>
 <p class="paginator">
     Page 1 / 1
 </p>

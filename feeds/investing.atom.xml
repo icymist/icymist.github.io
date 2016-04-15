@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaitanya Krishna Ande</title><link href="http://icymist.github.io/" rel="alternate"></link><link href="http://icymist.github.io/feeds/investing.atom.xml" rel="self"></link><id>http://icymist.github.io/</id><updated>2016-04-10T14:54:00+02:00</updated><entry><title>Turtle Trader Strategies</title><link href="http://icymist.github.io/turtle-trader-strategies.html" rel="alternate"></link><updated>2016-04-10T14:54:00+02:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2016-04-10:turtle-trader-strategies.html</id><summary type="html">&lt;h1&gt;Terminology&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;o, h, l, c :: open, high, low, close&lt;/li&gt;
+&lt;li&gt;x(n) :: where x is in [o, h, l, c], n=0 is today, -1 is yesterday, and so on.&lt;/li&gt;
+&lt;li&gt;TR :: True Range. It is max(abs(h(0)-l(0)), abs(h(0)-c(-1)), abs(l(0)-c(-1)))&lt;/li&gt;
+&lt;li&gt;ATR(n): Average True Range. Moving Average of TR over a period of time n.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;What should the portfolio constitute?&lt;/h1&gt;
+&lt;p&gt;It does not matter what constitutes the portfolio.
+It is important that they are as less correlated as possible.
+Also, a combination of longs and shorts is better than all longs or all shorts.&lt;/p&gt;
+&lt;h1&gt;What percentage of the portfolio should be associated with each trade?&lt;/h1&gt;
+&lt;p&gt;Not more than 2%.
+Wrong calls on large trades will erode capital much faster than wrong calls on small trades.
+2% on each trade gives a chance to have at least 50 trades.&lt;/p&gt;
+&lt;h1&gt;What are the entry and exit points for the trade?&lt;/h1&gt;
+&lt;p&gt;Enter and exit during breakouts.&lt;/p&gt;
+&lt;p&gt;There are two strategies:&lt;/p&gt;
+&lt;h2&gt;S1&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Entry&lt;/strong&gt; :: Buy or sell short a market if it made a new twenty-day high or low.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exit&lt;/strong&gt; :: Sell or cover short if the market made a new ten-day low or high.&lt;/p&gt;
+&lt;h2&gt;S2&lt;/h2&gt;
+&lt;p&gt;Longer-term trading strategy.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Entry&lt;/strong&gt; ::  55-day breakout&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exit&lt;/strong&gt; :: 20-day breakout&lt;/p&gt;
+&lt;h1&gt;When should you add to the trade?&lt;/h1&gt;</summary><category term="investing"></category><category term="technical"></category><category term="turtles"></category></entry></feed>
