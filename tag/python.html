@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Chaitanya Krishna Ande - python</title>
+        <link rel="stylesheet" href="http://icymist.github.io/theme/css/main.css" />
+        <link href="http://icymist.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Chaitanya Krishna Ande Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://icymist.github.io/">Chaitanya Krishna Ande </a></h1>
+                <nav><ul>
+                    <li><a href="http://icymist.github.io/pages/about.html">About</a></li>
+                    <li><a href="http://icymist.github.io/category/how-to.html">How To</a></li>
+                    <li><a href="http://icymist.github.io/category/investing.html">Investing</a></li>
+                    <li><a href="http://icymist.github.io/category/productivity.html">Productivity</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html">Install Anaconda for a painless Python experience</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2015-03-27T16:00:00+01:00">
+                Published: Fri 27 March 2015
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="http://icymist.github.io/author/chaitanya-krishna-ande.html">Chaitanya Krishna Ande</a>
+        </address>
+<p>In <a href="http://icymist.github.io/category/how-to.html">How To</a>. </p>
+<p>tags: <a href="http://icymist.github.io/tag/linux.html">linux</a> <a href="http://icymist.github.io/tag/python.html">python</a> </p>
+</footer><!-- /.post-info --><p>I have recently migrated from the Enthought Python Distribution to the Anaconda Python Distribution.
+Using anaconda has been a breeze compared to Enthought.
+Somehow, I couldn't get around my head to understand the User and System enviroments in Enthought.
+Also, I didn't quite understand how the command line management is different from the GUI.
+With Anacond it has been pretty simple.
+Just install, clone to get a new environment and start working.</p>
+<p>To install a python environment for my blog using pelican, I just had to do the following.</p>
+<ol>
+<li>
+<p>Install anaconda and add anaconda python to your path.</p>
+<div class="highlight"><pre>chmod +x Anaconda-2.1.0-Linux-x86_64.sh
+./Anaconda-2.1.0-Linux-x86_64.sh
+</pre></div>
+
+
+</li>
+<li>
+<p>Clone the <code>root</code> environment to a new environment named <code>pelican</code>.</p>
+<div class="highlight"><pre>conda create -n pelican --clone root
+</pre></div>
+
+
+</li>
+<li>
+<p>Install pelican and markdown. markdown wasn't present in the base Anaconda distribution.</p>
+<div class="highlight"><pre>pip install pelican
+</pre></div>
+
+
+</li>
+<li>
+<p>Change to the new pelican python environment and start working.</p>
+<div class="highlight"><pre><span class="nb">source </span>activate pelican
+</pre></div>
+
+
+</li>
+<li>
+<p>That was it. And, to get back to the root environment:</p>
+<div class="highlight"><pre><span class="nb">source </span>deactivate
+</pre></div>
+
+
+</li>
+</ol>
+<p>Other useful conda commands.</p>
+<ul>
+<li>
+<p>Info about available environments.</p>
+<div class="highlight"><pre>conda info -e
+</pre></div>
+
+
+</li>
+<li>
+<p>Completely remove an environment.</p>
+<div class="highlight"><pre>conda remove -n &lt;name of environment&gt; --all
+</pre></div>
+
+
+</li>
+</ul>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://icymist.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
