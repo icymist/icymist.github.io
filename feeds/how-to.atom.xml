@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Chaitanya Krishna Ande</title><link href="http://icymist.github.io/" rel="alternate"></link><link href="http://icymist.github.io/feeds/how-to.atom.xml" rel="self"></link><id>http://icymist.github.io/</id><updated>2015-03-27T16:00:00+01:00</updated><entry><title>Install Anaconda for a painless Python experience</title><link href="http://icymist.github.io/install-anaconda-for-a-painless-python-experience.html" rel="alternate"></link><updated>2015-03-27T16:00:00+01:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2015-03-27:install-anaconda-for-a-painless-python-experience.html</id><summary type="html">&lt;p&gt;I have recently migrated from the Enthought Python Distribution to the Anaconda Python Distribution.
+Using anaconda has been a breeze compared to Enthought.
+Somehow, I couldn't get around my head to understand the User and System enviroments in Enthought.
+Also, I didn't quite understand how the command line management is different from the GUI.
+With Anacond it has been pretty simple.
+Just install, clone to get a new environment and start working.&lt;/p&gt;
+&lt;p&gt;To install a python environment for my blog using pelican, I just had to do the following.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install anaconda and add anaconda python to your path.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;chmod +x Anaconda-2.1.0-Linux-x86_64.sh
+./Anaconda-2.1.0-Linux-x86_64.sh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Clone the &lt;code&gt;root&lt;/code&gt; environment to a new environment named &lt;code&gt;pelican&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;conda create -n pelican --clone root
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install pelican and markdown. markdown wasn't present in the base Anaconda distribution.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install pelican
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Change to the new pelican python environment and start working.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;source &lt;/span&gt;activate pelican
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;That was it. And, to get back to the root environment:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;source &lt;/span&gt;deactivate
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Other useful conda commands.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Info about available environments.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;conda info -e
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Completely remove an environment.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;conda remove -n &amp;lt;name of environment&amp;gt; --all
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="linux"></category><category term="python"></category></entry><entry><title>Install Torque on a single multi-core Linux deskop</title><link href="http://icymist.github.io/install-torque-on-a-single-multi-core-linux-deskop.html" rel="alternate"></link><updated>2015-03-27T11:53:00+01:00</updated><author><name>Chaitanya Krishna Ande</name></author><id>tag:icymist.github.io,2015-03-27:install-torque-on-a-single-multi-core-linux-deskop.html</id><summary type="html">&lt;p&gt;These days, all desktops easily have at least 4 or more cores.
+We can use Torque to continuously use all these for running jobs in a batch.&lt;/p&gt;
+&lt;p&gt;Here, we install Torque on a linux desktop, with eight cores.
+The desktop will act both as the torque server and also as the compute node on which computations are carried out.&lt;/p&gt;
+&lt;p&gt;Let us assume that we are trying to install it on the desktop with the fully qualified domain: bluesky.breezy.day. It is running openSuSE 13.2.
+So, the hostname would just be bluesky. Then, do the following.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install all torque related stuff (torque-sever, torque-client, torque-mom, etc.) from &lt;a href="https://software.opensuse.org/package/torque"&gt;here&lt;/a&gt;. They are listed as unstable.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Check the hostname. In my case, for some reason, &lt;code&gt;hostname -f&lt;/code&gt; was not giving the fully qualified domain name bluesky.breezy.day, but just the hostnmame bluesky.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;hostname
+bluesky
+hostname -f
+bluesky
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Make sure that /etc/hosts has a line which lists the ip address of whatever you get for hostname in 1.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;135.96.55.18 bleusky&amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; /etc/hosts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a serverdb file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pbs_server -t create
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a nodes file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat server_priv/nodes
+bluesky &lt;span class="nv"&gt;np&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;6   &lt;span class="c"&gt;# np is the number of cores on the desktop that you want to use&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Since, we are using the server also as the compute node, modify mom_priv/config. It should be:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat mom_priv/config   
+&lt;span class="nv"&gt;$pbsserver&lt;/span&gt; bluesky   &lt;span class="c"&gt;# hostname running pbs server&lt;/span&gt;
+&lt;span class="nv"&gt;$logevent&lt;/span&gt; 225        &lt;span class="c"&gt;# bitmap of which events to log&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open up the ports for Torque in openSuSE firewall.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enable pbs_server, pbs_mom and pbs_sched in Yast &amp;gt; System &amp;gt; Services in exactly the order listed.
+    Enabling the pbs_server AFTER pbs_mom, will not result in the pbs_server starting properly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally create a queue in which to run the jobs.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;qmgr -c &lt;span class="s2"&gt;&amp;quot;set server scheduling=true&amp;quot;&lt;/span&gt;
+qmgr -c &lt;span class="s2"&gt;&amp;quot;create queue default queue_type=execution&amp;quot;&lt;/span&gt;
+qmgr -c &lt;span class="s2"&gt;&amp;quot;set queue default started=true&amp;quot;&lt;/span&gt;
+qmgr -c &lt;span class="s2"&gt;&amp;quot;set queue default enabled=true&amp;quot;&lt;/span&gt;
+qmgr -c &lt;span class="s2"&gt;&amp;quot;set queue default enabled=true&amp;quot;&lt;/span&gt;
+qmgr -c &lt;span class="s2"&gt;&amp;quot;set server default_queue=default&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="linux"></category></entry></feed>
